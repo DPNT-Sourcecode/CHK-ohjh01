@@ -50,9 +50,6 @@ namespace BeFaster.App.Solutions.CHK
 
         private static int CalculatePrice(string sku, int qty)
         {
-            if (qty == 0)
-                return 0;
-
             switch (sku)
             {
                 case "A":
@@ -78,3 +75,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
