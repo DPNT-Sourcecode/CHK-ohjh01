@@ -32,7 +32,8 @@ namespace BeFaster.App.Solutions.CHK
                     }
                     else
                     {
-                        sum += CalculatePrice(last, count);
+                        if (last != null)
+                            sum += CalculatePrice(last, count);
                         count = 0;
                         last = s;
                     }
@@ -75,4 +76,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
