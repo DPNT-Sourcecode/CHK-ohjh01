@@ -39,7 +39,8 @@ namespace BeFaster.App.Solutions.CHK
 
         private static void ApplyCrossSkuDeals(Dictionary<string, int>  skusWithQuantities)
         {
-            if(skusWithQuantities.ContainsKey("B") && skusWithQuantities.ContainsKey("E"))
+            // 2E get one B free
+            if (skusWithQuantities.ContainsKey("B") && skusWithQuantities.ContainsKey("E"))
             {
                 int bcount = skusWithQuantities["B"];
                 int ecount = skusWithQuantities["E"];
@@ -51,6 +52,10 @@ namespace BeFaster.App.Solutions.CHK
 
                 skusWithQuantities["B"] = bcount;
             }
+
+            // 3N get one M free
+
+            // 3R get one Q free
         }
 
         private static Dictionary<string, int> ParseSkus(List<string> skulist)
@@ -137,11 +142,33 @@ namespace BeFaster.App.Solutions.CHK
                         int rem = qty - 2 * specials;
                         return rem * 80 + specials * 150;
                     }
-
+                case "L":
+                    return qty * 90;
+                case "M":
+                    return qty * 15;
+                case "N":
+                    return qty * 40;
+                case "O":
+                    return qty * 10;
+                case "P":
+                    {
+                        int specials = qty / 5;
+                        int rem = qty - 5 * specials;
+                        return rem * 50 + specials * 200;
+                    }
+                case "Q":
+                    {
+                        int specials = qty / 3;
+                        int rem = qty - 3 * specials;
+                        return rem * 30 + specials * 80;
+                    }
+                case "R":
+                    return qty * 50;
                 default:
                     throw new Exception("Invalid sku");
             }
         }
     }
 }
+
 
