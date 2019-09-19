@@ -38,13 +38,13 @@ namespace BeFaster.App.Solutions.CHK
                         last = s;
                     }
                 }
+
+                sum += CalculatePrice(last, count);
             }
             catch (Exception)
             {
                 return -1;
             }
-
-            sum += CalculatePrice(last, count);
 
             return sum;
         }
@@ -76,6 +76,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 

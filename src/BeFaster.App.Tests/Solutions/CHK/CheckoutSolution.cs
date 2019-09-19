@@ -19,6 +19,12 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
 
         [Test]
+        public void CheckoutEmptyBasket()
+        {
+            Assert.AreEqual(0, CheckoutSolution.Checkout(""));
+        }
+
+        [Test]
         public void SimpleBasket()
         {
             Assert.AreEqual(115, CheckoutSolution.Checkout("ABCD"));
@@ -39,7 +45,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void SpecialOfferBasketB()
         {
-            Assert.AreEqual(75, CheckoutSolution.Checkout("BB"));
+            Assert.AreEqual(45, CheckoutSolution.Checkout("BB"));
         }
 
         [Test]
