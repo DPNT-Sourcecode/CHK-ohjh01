@@ -71,5 +71,35 @@ namespace BeFaster.App.Tests.Solutions.CHK
         {
             Assert.AreEqual(-1, CheckoutSolution.Checkout("a"));
         }
+
+        [Test]
+        public void SimpleBasketE()
+        {
+            Assert.AreEqual(40, CheckoutSolution.Checkout("E"));
+        }
+
+        [Test]
+        public void MultipleBasketENoB()
+        {
+            Assert.AreEqual(80, CheckoutSolution.Checkout("EE"));
+        }
+
+        [Test]
+        public void FreeBBasketEvenE()
+        {
+            Assert.AreEqual(110, CheckoutSolution.Checkout("EEB"));
+        }
+
+        [Test]
+        public void FreeBBasketOddE()
+        {
+            Assert.AreEqual(150, CheckoutSolution.Checkout("EEEBB"));
+        }
+
+        [Test]
+        public void FreeBBasketOddB()
+        {
+            Assert.AreEqual(165, CheckoutSolution.Checkout("EEEBBB"));
+        }
     }
 }
