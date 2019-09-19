@@ -8,6 +8,9 @@ namespace BeFaster.App.Solutions.CHK
     {
         public static int Checkout(string skus)
         {
+            if (string.IsNullOrEmpty(skus))
+                return 0;
+
             // first group SKUs together by creating and sorting a list
             skus = skus.ToUpper();
             var skulist = new List<string>();
@@ -76,6 +79,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
