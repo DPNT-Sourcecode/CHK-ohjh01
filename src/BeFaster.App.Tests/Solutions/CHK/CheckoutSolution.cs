@@ -101,5 +101,29 @@ namespace BeFaster.App.Tests.Solutions.CHK
         {
             Assert.AreEqual(165, CheckoutSolution.Checkout("EEEBBB"));
         }
+
+        [Test]
+        public void SingleFBasket()
+        {
+            Assert.AreEqual(10, CheckoutSolution.Checkout("F"));
+        }
+
+        [Test]
+        public void MultipleFBasket2()
+        {
+            Assert.AreEqual(20, CheckoutSolution.Checkout("FF"));
+        }
+
+        [Test]
+        public void MultipleFBasket3()
+        {
+            Assert.AreEqual(20, CheckoutSolution.Checkout("FFF"));
+        }
+
+        [Test]
+        public void MultipleFBasketLots()
+        {
+            Assert.AreEqual(50, CheckoutSolution.Checkout("FFFFFFF"));
+        }
     }
 }
