@@ -187,9 +187,15 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
 
         [Test]
-        public void UDeal()
+        public void UDeal1()
         {
             Assert.AreEqual(120, CheckoutSolution.Checkout("UUUU"));
+        }
+
+        [Test]
+        public void UDeal2()
+        {
+            Assert.AreEqual(120, CheckoutSolution.Checkout("UUU"));
         }
 
         [Test]
