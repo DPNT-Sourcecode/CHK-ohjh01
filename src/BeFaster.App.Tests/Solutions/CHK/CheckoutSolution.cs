@@ -27,7 +27,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void SimpleBasket()
         {
-            Assert.AreEqual(115, CheckoutSolution.Checkout("ABCD"));
+            Assert.AreEqual(185, CheckoutSolution.Checkout("ABCDK"));
         }
 
         [Test]
@@ -208,6 +208,42 @@ namespace BeFaster.App.Tests.Solutions.CHK
         public void VDeal2()
         {
             Assert.AreEqual(220, CheckoutSolution.Checkout("VVVVV"));
+        }
+
+        [Test]
+        public void CheckSTXYZSingle1()
+        {
+            Assert.AreEqual(40, CheckoutSolution.Checkout("ST"));
+        }
+
+        [Test]
+        public void CheckSTXYZSingle2()
+        {
+            Assert.AreEqual(37, CheckoutSolution.Checkout("XY"));
+        }
+
+        [Test]
+        public void CheckSTXYZSingle3()
+        {
+            Assert.AreEqual(21, CheckoutSolution.Checkout("Z"));
+        }
+
+        [Test]
+        public void CheckSTXYZDeal1()
+        {
+            Assert.AreEqual(127, CheckoutSolution.Checkout("STXYZ"));
+        }
+
+        [Test]
+        public void CheckSTXYZDeal2()
+        {
+            Assert.AreEqual(135, CheckoutSolution.Checkout("STXYYYZZZ"));
+        }
+
+        [Test]
+        public void CheckSTXYZDeal3()
+        {
+            Assert.AreEqual(135, CheckoutSolution.Checkout("STXYYYZZZ"));
         }
     }
 }
