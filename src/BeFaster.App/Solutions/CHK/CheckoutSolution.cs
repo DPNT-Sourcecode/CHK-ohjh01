@@ -80,6 +80,18 @@ namespace BeFaster.App.Solutions.CHK
 
                 skusWithQuantities["Q"] = qcount;
             }
+
+            // Multi STXYZ deal
+            int stxyzCount = 0;
+            foreach (string s in new[] { "S", "T", "X", "Y", "Z" })
+            {
+                if (skusWithQuantities.ContainsKey(s))
+                    stxyzCount += skusWithQuantities[s];
+            }
+
+            int stxyzDeals = stxyzCount / 3;
+            skusWithQuantities["1"] = stxyzDeals;   // stxyz special deal tag
+
         }
 
         private static Dictionary<string, int> ParseSkus(List<string> skulist)
@@ -218,7 +230,8 @@ namespace BeFaster.App.Solutions.CHK
                     return qty * 10;
                 case "Z":
                     return qty * 50;
-
+                case "1":
+                    return qty * 45;
 
                 default:
                     throw new Exception("Invalid sku");
@@ -226,4 +239,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
