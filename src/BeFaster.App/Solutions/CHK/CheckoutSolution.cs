@@ -15,9 +15,7 @@ namespace BeFaster.App.Solutions.CHK
 
             var skulist = new List<string>();
             for (int i = 0; i < skus.Length; i++)
-            {
                 skulist.Add(skus.Substring(i, 1));
-            }
 
             skulist.Sort();
 
@@ -39,9 +37,20 @@ namespace BeFaster.App.Solutions.CHK
             return sum;
         }
 
-        private static void ApplyCrossSkuDeals(List<KeyValuePair<string, int>>  skusWithQuantities)
+        private static void ApplyCrossSkuDeals(Dictionary<string, int>  skusWithQuantities)
         {
-            if(skusWithQuantities.Contains("E")
+            if(skusWithQuantities.ContainsKey("B") && skusWithQuantities.ContainsKey("E"))
+            {
+                int bcount = skusWithQuantities["B"];
+                int ecount = skusWithQuantities["E"];
+
+                int freebs = ecount / 2;
+                bcount -= freebs;
+                if (bcount < 0)
+                    bcount = 0;
+
+                skusWithQuantities["B"] = bcount;
+            }
         }
 
         private static Dictionary<string, int> ParseSkus(List<string> skulist)
@@ -105,4 +114,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
