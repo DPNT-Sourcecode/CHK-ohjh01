@@ -194,9 +194,9 @@ namespace BeFaster.App.Solutions.CHK
                     return qty * 20;
                 case "U":
                     {
-                        int specials = qty / 3;
-                        int rem = qty - 3 * specials;
-                        return rem * 40 + specials * 80;
+                        int specials = qty / 4;
+                        int rem = qty - 4 * specials;
+                        return rem * 40 + specials * 120;
                     }
                 case "V":
                     {
@@ -226,3 +226,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
