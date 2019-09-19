@@ -9,7 +9,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void CheckoutIsInvalid()   
         {
-            Assert.AreEqual(-1, CheckoutSolution.Checkout("XYZ"));
+            Assert.AreEqual(-1, CheckoutSolution.Checkout("123"));
         }
 
         [Test]
@@ -201,7 +201,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void VDeal2()
         {
-            Assert.AreEqual(210, CheckoutSolution.Checkout("VVVVV"));
+            Assert.AreEqual(220, CheckoutSolution.Checkout("VVVVV"));
         }
     }
 }
