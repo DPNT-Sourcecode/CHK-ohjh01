@@ -54,8 +54,32 @@ namespace BeFaster.App.Solutions.CHK
             }
 
             // 3N get one M free
+            if (skusWithQuantities.ContainsKey("N") && skusWithQuantities.ContainsKey("M"))
+            {
+                int ncount = skusWithQuantities["N"];
+                int mcount = skusWithQuantities["M"];
+
+                int freems = ncount / 3;
+                mcount -= freems;
+                if (mcount < 0)
+                    mcount = 0;
+
+                skusWithQuantities["M"] = mcount;
+            }
 
             // 3R get one Q free
+            if (skusWithQuantities.ContainsKey("Q") && skusWithQuantities.ContainsKey("R"))
+            {
+                int qcount = skusWithQuantities["Q"];
+                int rcount = skusWithQuantities["R"];
+
+                int freeqs = rcount / 3;
+                qcount -= freeqs;
+                if (qcount < 0)
+                    qcount = 0;
+
+                skusWithQuantities["Q"] = qcount;
+            }
         }
 
         private static Dictionary<string, int> ParseSkus(List<string> skulist)
@@ -202,6 +226,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
