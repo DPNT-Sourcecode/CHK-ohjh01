@@ -14,33 +14,20 @@ namespace BeFaster.App.Solutions.CHK
             // first group SKUs together by creating and sorting a list
 
             var skulist = new List<string>();
-            for (int i =0; i < skus.Length; i++)
+            for (int i = 0; i < skus.Length; i++)
             {
                 skulist.Add(skus.Substring(i, 1));
             }
 
             skulist.Sort();
 
-            var skusAndQuantities = ParseSkus(skulist);
+            var skusWithQuantities = ParseSkus(skulist);
 
+            int sum = 0;
             try
             {
-                foreach (string s in skulist)
-                {
-                    if (s == last)
-                    {
-                        count++;
-                    }
-                    else
-                    {
-                        if (last != null)
-                            sum += CalculatePrice(last, count);
-                        count = 1;
-                        last = s;
-                    }
-                }
-
-                sum += CalculatePrice(last, count);
+                foreach (var skuWithQuantity in skusWithQuantities)
+                    sum += CalculatePrice(skuWithQuantity.Key, skuWithQuantity.Value);
             }
             catch (Exception)
             {
@@ -111,6 +98,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
