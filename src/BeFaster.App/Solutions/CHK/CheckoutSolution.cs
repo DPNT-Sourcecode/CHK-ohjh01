@@ -23,6 +23,8 @@ namespace BeFaster.App.Solutions.CHK
 
             var skusWithQuantities = ParseSkus(skulist);
 
+            ApplyCrossSkuDeals(skusWithQuantities);
+
             int sum = 0;
             try
             {
@@ -37,9 +39,14 @@ namespace BeFaster.App.Solutions.CHK
             return sum;
         }
 
-        private static List<KeyValuePair<string, int>> ParseSkus(List<string> skulist)
+        private static void ApplyCrossSkuDeals(List<KeyValuePair<string, int>>  skusWithQuantities)
         {
-            var skus = new List<KeyValuePair<string, int>>();
+            if(skusWithQuantities.Contains("E")
+        }
+
+        private static Dictionary<string, int> ParseSkus(List<string> skulist)
+        {
+            var skus = new Dictionary<string, int>();
             string last = null;
             int count = 0;
 
@@ -52,13 +59,13 @@ namespace BeFaster.App.Solutions.CHK
                 else
                 {
                     if (last != null)
-                        skus.Add(new KeyValuePair<string, int>(last, count));
+                        skus[last] = count;
                     count = 1;
                     last = s;
                 }
             }
 
-            skus.Add(new KeyValuePair<string, int>(last, count));
+            skus[last] = count;
 
             return skus;
         }
@@ -98,3 +105,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
