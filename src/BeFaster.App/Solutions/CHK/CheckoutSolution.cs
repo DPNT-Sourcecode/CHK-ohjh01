@@ -78,6 +78,8 @@ namespace BeFaster.App.Solutions.CHK
                     return qty * 20;
                 case "D":
                     return qty * 15;
+                case "E":
+                    return qty * 40;
 
                 default:
                     throw new Exception("Invalid sku");
@@ -85,4 +87,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
