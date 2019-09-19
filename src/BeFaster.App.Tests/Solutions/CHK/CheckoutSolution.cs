@@ -177,7 +177,31 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void RQDeal1()
         {
-            Assert.AreEqual(250, CheckoutSolution.Checkout("PPPPPP"));
+            Assert.AreEqual(200, CheckoutSolution.Checkout("RRRR"));
+        }
+
+        [Test]
+        public void RQDeal2()
+        {
+            Assert.AreEqual(260, CheckoutSolution.Checkout("QQQRRRR"));
+        }
+
+        [Test]
+        public void UDeal()
+        {
+            Assert.AreEqual(120, CheckoutSolution.Checkout("UUUU"));
+        }
+
+        [Test]
+        public void VDeal1()
+        {
+            Assert.AreEqual(180, CheckoutSolution.Checkout("VVVV"));
+        }
+
+        [Test]
+        public void VDeal2()
+        {
+            Assert.AreEqual(210, CheckoutSolution.Checkout("VVVVV"));
         }
     }
 }
