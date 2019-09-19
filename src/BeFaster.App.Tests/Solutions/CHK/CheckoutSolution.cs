@@ -87,7 +87,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void FreeBBasketEvenE()
         {
-            Assert.AreEqual(110, CheckoutSolution.Checkout("EEB"));
+            Assert.AreEqual(80, CheckoutSolution.Checkout("EEB"));
         }
 
         [Test]
