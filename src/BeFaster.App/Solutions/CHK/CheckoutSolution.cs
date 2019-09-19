@@ -164,11 +164,44 @@ namespace BeFaster.App.Solutions.CHK
                     }
                 case "R":
                     return qty * 50;
+                case "S":
+                    return qty * 30;
+                case "T":
+                    return qty * 20;
+                case "U":
+                    {
+                        int specials = qty / 3;
+                        int rem = qty - 3 * specials;
+                        return rem * 40 + specials * 80;
+                    }
+                case "V":
+                    {
+                        // try 3x deals first
+                        int specials3 = qty / 3;
+                        qty -= 3 * specials3;
+                        int sum = specials3 * 130;
+
+                        // see if any 2x deals left
+                        int specials = qty / 2;
+                        int rem = qty - 2 * specials;
+                        return sum + rem * 50 + specials * 90;
+                    }
+                case "W":
+                    return qty * 20;
+                case "X":
+                    return qty * 90;
+                case "Y":
+                    return qty * 10;
+                case "Z":
+                    return qty * 50;
+
+
                 default:
                     throw new Exception("Invalid sku");
             }
         }
     }
 }
+
 
 
