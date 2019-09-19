@@ -125,5 +125,11 @@ namespace BeFaster.App.Tests.Solutions.CHK
         {
             Assert.AreEqual(50, CheckoutSolution.Checkout("FFFFFFF"));
         }
+
+        [Test]
+        public void BigBasketSelection()
+        {
+            Assert.AreEqual(1165, CheckoutSolution.Checkout("HHIIJJKLLMMMNNOPPQRRSTTUVWXYZ"));
+        }
     }
 }
