@@ -21,9 +21,7 @@ namespace BeFaster.App.Solutions.CHK
 
             skulist.Sort();
 
-            string last = null;
-            int count = 0;
-            int sum = 0;
+            var skusAndQuantities = ParseSkus(skulist);
 
             try
             {
@@ -50,6 +48,32 @@ namespace BeFaster.App.Solutions.CHK
             }
 
             return sum;
+        }
+
+        private static List<KeyValuePair<string, int>> ParseSkus(List<string> skulist)
+        {
+            var skus = new List<KeyValuePair<string, int>>();
+            string last = null;
+            int count = 0;
+
+            foreach (string s in skulist)
+            {
+                if (s == last)
+                {
+                    count++;
+                }
+                else
+                {
+                    if (last != null)
+                        skus.Add(new KeyValuePair<string, int>(last, count));
+                    count = 1;
+                    last = s;
+                }
+            }
+
+            skus.Add(new KeyValuePair<string, int>(last, count));
+
+            return skus;
         }
 
         private static int CalculatePrice(string sku, int qty)
@@ -87,5 +111,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
