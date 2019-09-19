@@ -113,6 +113,30 @@ namespace BeFaster.App.Solutions.CHK
                         int rem = qty - 3 * specials;
                         return rem * 10 + specials * 20;
                     }
+                case "G":
+                    return qty * 20;
+                case "H":
+                    {
+                        // try 10x deals first
+                        int specials5 = qty / 10;
+                        qty -= 10 * specials5;
+                        int sum = specials5 * 80;
+
+                        // see if any 5x deals left
+                        int specials = qty / 5;
+                        int rem = qty - 5 * specials;
+                        return sum + rem * 10 + specials * 45;
+                    }
+                case "I":
+                    return qty * 35;
+                case "J":
+                    return qty * 60;
+                case "K":
+                    {
+                        int specials = qty / 2;
+                        int rem = qty - 2 * specials;
+                        return rem * 80 + specials * 150;
+                    }
 
                 default:
                     throw new Exception("Invalid sku");
@@ -120,3 +144,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
