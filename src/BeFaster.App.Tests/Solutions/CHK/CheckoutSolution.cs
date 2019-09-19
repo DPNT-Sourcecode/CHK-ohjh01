@@ -65,5 +65,12 @@ namespace BeFaster.App.Tests.Solutions.CHK
         {
             Assert.AreEqual(245, CheckoutSolution.Checkout("DACDBCADA"));
         }
+
+        [Test]
+        public void LowerCaseNotAllowed()
+        {
+            Assert.AreEqual(-1, CheckoutSolution.Checkout("a"));
+        }
     }
 }
+

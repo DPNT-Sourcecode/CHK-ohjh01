@@ -12,7 +12,7 @@ namespace BeFaster.App.Solutions.CHK
                 return 0;
 
             // first group SKUs together by creating and sorting a list
-            skus = skus.ToUpper();
+
             var skulist = new List<string>();
             for (int i =0; i < skus.Length; i++)
             {
@@ -79,6 +79,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
