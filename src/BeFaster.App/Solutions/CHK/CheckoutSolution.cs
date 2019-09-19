@@ -83,15 +83,30 @@ namespace BeFaster.App.Solutions.CHK
 
             // Multi STXYZ deal
             int stxyzCount = 0;
+            // find total combined deals
             foreach (string s in new[] { "S", "T", "X", "Y", "Z" })
             {
                 if (skusWithQuantities.ContainsKey(s))
                     stxyzCount += skusWithQuantities[s];
             }
-
             int stxyzDeals = stxyzCount / 3;
-            skusWithQuantities["1"] = stxyzDeals;   // stxyz special deal tag
+            skusWithQuantities["1"] = stxyzDeals;   // special tag to record number of deals
+            int numberToRemove = stxyzDeals * 3;
 
+            // now scan in value order to reduce counts according to deals
+            foreach (string s in new[] { "Z", "S", "T", "Y", "X" })
+            {
+                if (numberToRemove > 0)
+                {
+                    if (skusWithQuantities.ContainsKey(s))
+                    {
+                        int thisCount = skusWithQuantities[s];
+                        int removeCount = Math.Min(thisCount, numberToRemove);
+                        skusWithQuantities[s] = thisCount - removeCount;
+                        numberToRemove -= removeCount;
+                    }
+                }
+            }
         }
 
         private static Dictionary<string, int> ParseSkus(List<string> skulist)
@@ -176,7 +191,7 @@ namespace BeFaster.App.Solutions.CHK
                     {
                         int specials = qty / 2;
                         int rem = qty - 2 * specials;
-                        return rem * 80 + specials * 150;
+                        return rem * 70 + specials * 120;
                     }
                 case "L":
                     return qty * 90;
@@ -201,7 +216,7 @@ namespace BeFaster.App.Solutions.CHK
                 case "R":
                     return qty * 50;
                 case "S":
-                    return qty * 30;
+                    return qty * 20;
                 case "T":
                     return qty * 20;
                 case "U":
@@ -225,11 +240,11 @@ namespace BeFaster.App.Solutions.CHK
                 case "W":
                     return qty * 20;
                 case "X":
-                    return qty * 90;
+                    return qty * 17;
                 case "Y":
-                    return qty * 10;
+                    return qty * 20;
                 case "Z":
-                    return qty * 50;
+                    return qty * 21;
                 case "1":
                     return qty * 45;
 
@@ -239,3 +254,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
