@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BeFaster.Runner.Exceptions;
 
 namespace BeFaster.App.Solutions.CHK
@@ -21,25 +22,30 @@ namespace BeFaster.App.Solutions.CHK
             int count = 0;
             int sum = 0;
 
-            foreach(string s in skulist)
+            try
             {
-                if (s == last)
+                foreach (string s in skulist)
                 {
-                    count++;
-                }
-                else
-                {
-                    sum += CalculatePrice(last, count);
-                    count = 0;
-                    last = s;
+                    if (s == last)
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        sum += CalculatePrice(last, count);
+                        count = 0;
+                        last = s;
+                    }
                 }
             }
+            catch (Exception)
+            {
+                return -1;
+            }
 
+            sum += CalculatePrice(last, count);
 
-
-
-
-            return -1;
+            return sum;
         }
 
         private static int CalculatePrice(string sku, int qty)
@@ -67,9 +73,10 @@ namespace BeFaster.App.Solutions.CHK
                     return qty * 15;
 
                 default:
-                    throw new System.Exception("Invalid sku");
+                    throw new Exception("Invalid sku");
             }
         }
     }
 }
+
 
