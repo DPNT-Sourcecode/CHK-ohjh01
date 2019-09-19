@@ -129,7 +129,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void BigBasketSelection()
         {
-            Assert.AreEqual(1165, CheckoutSolution.Checkout("HHIIJJKLLMMMNNOPPQRRSTTUVWXYZ"));
+            Assert.AreEqual(1025, CheckoutSolution.Checkout("HHIIJJKLLMMMNNOPPQRRSTTUVWXYZ"));
         }
 
         [Test]
@@ -231,7 +231,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [Test]
         public void CheckSTXYZDeal1()
         {
-            Assert.AreEqual(127, CheckoutSolution.Checkout("STXYZ"));
+            Assert.AreEqual(82, CheckoutSolution.Checkout("STXYZ"));
         }
 
         [Test]
