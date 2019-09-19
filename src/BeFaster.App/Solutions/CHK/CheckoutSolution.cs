@@ -58,9 +58,15 @@ namespace BeFaster.App.Solutions.CHK
             {
                 case "A":
                     {
+                        // try 5x deals first
+                        int specials5 = qty / 5;
+                        qty -= 5 * specials5;
+                        int sum = specials5 * 200;
+
+                        // see if any 3x deals left
                         int specials = qty / 3;
                         int rem = qty - 3 * specials;
-                        return rem * 50 + specials * 130;
+                        return sum + rem * 50 + specials * 130;
                     }
                 case "B":
                     {
@@ -79,3 +85,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
